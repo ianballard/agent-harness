@@ -1,0 +1,15 @@
+{
+  "_comment": "Bootstrap template. Rename or materialize into the destination project's .claude/settings.json only if the interview confirms a shared settings file is required.",
+  "task_system": "<task-system-name>",
+  "preferred_log_mode": "<local|remote|both>",
+  "remote_log_adapter": "<remote-adapter-command-or-script>",
+  "deploy_context_key": "<deploy-context-key>",
+  "allowed_deploy_contexts": ["<allowed-context-value>"],
+  "forbidden_deploy_contexts": ["<forbidden-context-value>"],
+  "cloud_provider": "<cloud-provider>",
+  "required_cloud_identity": "<required-cloud-identity>",
+  "notes": [
+    "Replace placeholders from bootstrap interview answers.",
+    "Remove keys the destination project does not need."
+  ]
+}

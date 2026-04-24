@@ -1,0 +1,9 @@
+{
+  "_comment": "Bootstrap template. Rename or materialize into the destination project's .claude/settings.local.json only if the interview confirms local-only overrides are required.",
+  "local_log_root": "<local-log-root>",
+  "local_dev_command": "<local-dev-command>",
+  "local_test_command": "<local-test-command>",
+  "developer_overrides": {
+    "preferred_log_mode": "<local|remote|both>"
+  }
+}

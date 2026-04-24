@@ -1,0 +1,159 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1"
+  },
+  "permissions": {
+    "allow": [],
+    "deny": [
+      "Bash(terraform destroy*)",
+      "Bash(*terraform destroy*)",
+      "Bash(aws * create-*)",
+      "Bash(aws * delete-*)",
+      "Bash(aws * put-*)",
+      "Bash(cdk deploy*)",
+      "Bash(cdk destroy*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(rm -rf /*)",
+      "Edit(.claude/settings*)",
+      "Write(.claude/settings*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {                                                                                                                                    
+            "type": "command",
+            "command": "bash .claude/hooks/block-terraform-env-check.sh"                                                                       
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/block-aws-profile-check.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/block-aws-mutate.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/block-indirect-exec.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/block-secret-in-command.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/block-exfiltration.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/block-factory-push.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/block-destructive-git.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/log-dependency-install.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/block-self-modify.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/block-secret-in-write.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/block-self-modify.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/block-secret-in-write.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/audit-command-log.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/audit-network-egress.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/audit-file-change-log.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/audit-file-change-log.sh"
+          }
+        ]
+      }
+    ],
+    "PostCompact": [                                                                                                                                 
+    {                                                                                                                                              
+      "hooks": [                                                                                                                                   
+        {                                                                                                                                          
+          "type": "command",                                                                                                                       
+          "command": "bash .claude/hooks/save-compact-memory.sh"                                                                                   
+        }                                                                                                                                          
+      ]
+    }                                                                                                                                              
+  ]
+  },
+  "enabledPlugins": {
+    "feature-dev@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "atlassian@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "learning-output-style@claude-plugins-official": true,
+    "playground@claude-plugins-official": true,
+    "firecrawl@claude-plugins-official": true,
+    "postman@claude-plugins-official": true,
+    "deploy-on-aws@claude-plugins-official": true,
+    "terraform@claude-plugins-official": true
+  }
+}
