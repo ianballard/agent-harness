@@ -1,11 +1,11 @@
 ---
 id: TASK-2.2.3
 title: Implement signup and login API flow
-status: In Progress
+status: Done
 assignee:
   - '@task-intake'
 created_date: '2026-04-26 16:58'
-updated_date: '2026-04-26 17:23'
+updated_date: '2026-04-26 17:28'
 labels:
   - backend
   - auth
@@ -54,7 +54,15 @@ Files changed: backend/app/auth.py (added password hashing, password verificatio
 Decisions: used stdlib scrypt + HMAC-signed bearer tokens to avoid adding auth dependencies while still persisting hashed passwords and returning frontend-consumable token material.
 Verification: python3 -m pytest backend/tests -> 9 passed; python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000 + npx playwright test e2e/backend-scaffold.spec.js e2e/auth-api.spec.js -> 2 passed.
 Deploy workflow: no deploy step required for backend auth changes under project testing/deployment policy.
+
+Closeout merge-guard base: develop. Working tree contains unrelated local changes outside task scope: .claude/skills/bootstrap-project-harness/SKILL.md; .claude/skills/bootstrap-project-harness/assets/templates/settings/settings.local.template.json; .claude/skills/bootstrap-project-harness/assets/templates/settings/settings.template.json; .claude/skills/bootstrap-project-harness/references/materialization-map.md; .claude/skills/bootstrap-project-harness/references/output-map.md; .claude/skills/bootstrap-project-harness/references/project-inputs.md; .claude/skills/bootstrap-project-harness/references/question-bank.md; .claude/skills/bootstrap-project-harness/assets/templates/docs/harness/hooks.md; .claude/skills/bootstrap-project-harness/assets/templates/githooks/; .claude/skills/bootstrap-project-harness/assets/templates/scripts/claude_hook_post_tool_use.sh; .claude/skills/bootstrap-project-harness/assets/templates/scripts/claude_hook_pre_tool_use.sh; .claude/skills/bootstrap-project-harness/assets/templates/scripts/install_githooks.sh; backlog/tasks/task-3 - Add-hook-generation-to-bootstrap-skill.md; backend/myproject.db.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Completed backend signup/login API flow on top of the FastAPI scaffold and SQLite persistence layer. Delivered duplicate-signup rejection, persisted credential validation, signed bearer-token response, backend auth coverage, and Playwright API smoke coverage. Verification evidence: python3 -m pytest backend/tests -> 9 passed; npx playwright test e2e/backend-scaffold.spec.js e2e/auth-api.spec.js -> 2 passed with local backend running. Independent review completed with REVIEW_OK and no blocking findings.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
