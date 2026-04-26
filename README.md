@@ -59,12 +59,12 @@ Test files live in `backend/tests/`. Pytest is configured via `pyproject.toml`.
 
 ### E2E
 
-Start the backend in one terminal:
+Make sure backend dependencies are installed first:
 
 ```bash
 cd backend
 source .venv/bin/activate
-uvicorn main:app --reload
+pip install -r requirements.txt
 ```
 
 Install frontend dependencies once if you have not already:
@@ -79,3 +79,5 @@ Then run the smoke tests from the repo root:
 ```bash
 npx playwright test e2e/backend-scaffold.spec.js e2e/frontend-auth.spec.js
 ```
+
+Playwright starts the backend and frontend dev servers automatically from the repo configuration.
