@@ -37,9 +37,13 @@ test("frontend auth shell supports signup, duplicate signup errors, login, and p
 
   await expect(page.getByRole("heading", { name: "Frontend User" })).toBeVisible();
   await expect(page.getByText(email)).toBeVisible();
+  await expect(page.getByText(/^User ID:/)).toBeVisible();
+  await expect(page.getByText(/^Created:/)).toBeVisible();
 
   await page.reload();
 
   await expect(page.getByRole("heading", { name: "Frontend User" })).toBeVisible();
   await expect(page.getByText(email)).toBeVisible();
+  await expect(page.getByText(/^User ID:/)).toBeVisible();
+  await expect(page.getByText(/^Created:/)).toBeVisible();
 });
