@@ -1,11 +1,11 @@
 ---
 id: TASK-2.2
 title: Implement backend auth and profile API with SQLite persistence
-status: In Progress
+status: Done
 assignee:
   - '@task-intake'
 created_date: '2026-04-26 16:48'
-updated_date: '2026-04-26 16:58'
+updated_date: '2026-04-26 22:07'
 labels:
   - backend
   - fastapi
