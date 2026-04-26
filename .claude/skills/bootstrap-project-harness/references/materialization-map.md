@@ -31,15 +31,15 @@ Use this map to render the bundled factory into a target project. Treat the bund
 - `assets/templates/skills/coder_commit/SKILL.md` -> `.claude/skills/coder_commit/SKILL.md`
 - `assets/templates/skills/coder_output_result/SKILL.md` -> `.claude/skills/coder_output_result/SKILL.md`
 
-## Harness customization skills
+## Project customization skills
 
-- `assets/templates/skills/harness_task_system_policy/SKILL.md` -> `.claude/skills/harness_task_system_policy/SKILL.md`
-- `assets/templates/skills/harness_risk_policy/SKILL.md` -> `.claude/skills/harness_risk_policy/SKILL.md`
-- `assets/templates/skills/harness_testing_policy/SKILL.md` -> `.claude/skills/harness_testing_policy/SKILL.md`
-- `assets/templates/skills/harness_deployment_policy/SKILL.md` -> `.claude/skills/harness_deployment_policy/SKILL.md`
-- `assets/templates/skills/harness_deployment_workflow/SKILL.md` -> `.claude/skills/harness_deployment_workflow/SKILL.md`
-- `assets/templates/skills/harness_observability_workflow/SKILL.md` -> `.claude/skills/harness_observability_workflow/SKILL.md`
-- `assets/templates/skills/harness_git_policy/SKILL.md` -> `.claude/skills/harness_git_policy/SKILL.md`
+- `assets/templates/skills/project_policy_task_system/SKILL.md` -> `.claude/skills/project_policy_task_system/SKILL.md`
+- `assets/templates/skills/project_policy_risk/SKILL.md` -> `.claude/skills/project_policy_risk/SKILL.md`
+- `assets/templates/skills/project_policy_testing/SKILL.md` -> `.claude/skills/project_policy_testing/SKILL.md`
+- `assets/templates/skills/project_policy_deployment/SKILL.md` -> `.claude/skills/project_policy_deployment/SKILL.md`
+- `assets/templates/skills/project_workflow_deployment/SKILL.md` -> `.claude/skills/project_workflow_deployment/SKILL.md`
+- `assets/templates/skills/project_workflow_observability/SKILL.md` -> `.claude/skills/project_workflow_observability/SKILL.md`
+- `assets/templates/skills/project_policy_git/SKILL.md` -> `.claude/skills/project_policy_git/SKILL.md`
 
 ## Helper scripts
 

@@ -25,16 +25,16 @@ These should stay project-agnostic:
 - `.claude/skills/coordinator_*`
 - `.claude/skills/coder_*`
 
-## Fill with project-local policy
+## Fill with project-local policy and workflow
 
 Populate these with concrete project rules:
-- `.claude/skills/harness_task_system_policy/SKILL.md`
-- `.claude/skills/harness_risk_policy/SKILL.md`
-- `.claude/skills/harness_testing_policy/SKILL.md`
-- `.claude/skills/harness_deployment_policy/SKILL.md`
-- `.claude/skills/harness_deployment_workflow/SKILL.md`
-- `.claude/skills/harness_observability_workflow/SKILL.md`
-- `.claude/skills/harness_git_policy/SKILL.md`
+- `.claude/skills/project_policy_task_system/SKILL.md`
+- `.claude/skills/project_policy_risk/SKILL.md`
+- `.claude/skills/project_policy_testing/SKILL.md`
+- `.claude/skills/project_policy_deployment/SKILL.md`
+- `.claude/skills/project_workflow_deployment/SKILL.md`
+- `.claude/skills/project_workflow_observability/SKILL.md`
+- `.claude/skills/project_policy_git/SKILL.md`
 
 ## Generate project-local helper scripts when required
 

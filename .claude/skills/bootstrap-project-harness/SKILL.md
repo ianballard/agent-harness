@@ -15,6 +15,34 @@ Instantiate a project-specific harness while preserving this rule:
 
 Do not turn the base coordinator/coder/task-stage skills into architecture- or provider-specific instructions.
 
+## Required Workflow
+
+Follow this sequence. Do not skip ahead to file generation.
+
+1. Inspect the target repository's existing context:
+   - read `README.md` if present
+   - read `CLAUDE.md` if present
+   - inspect any obvious architecture or workflow docs that materially affect the harness
+2. Run the human interview using `references/question-bank.md` as a required checklist.
+3. Normalize the answers into the structure in `references/project-inputs.md`.
+4. Identify unresolved items:
+   - mark them as `UNRESOLVED`
+   - decide whether bootstrap must stop or may continue with placeholders
+   - confirm that decision with the human when the answer is not already explicit
+5. Materialize the target project files using:
+   - `references/materialization-map.md`
+   - `references/output-map.md`
+   - bundled templates under `assets/templates/`
+6. Summarize what was generated, what was intentionally omitted, and which placeholders remain.
+
+## Hard Rules
+
+- Treat the question bank as mandatory unless the human explicitly asks for partial scaffolding.
+- Do not generate target `CLAUDE.md`, agents, skills, hooks, settings, or helper scripts until the interview is complete.
+- If the human explicitly wants placeholder-first scaffolding, say that the result is intentionally incomplete and record unresolved sections clearly in the generated files.
+- Do not infer project-specific deployment, task-system, testing, observability, or git policy when the answer is unknown. Use placeholders or stop.
+- Keep base coordinator/coder/task-stage skills generic. Put project-local rules in project policy/workflow skills or linked docs.
+
 ## What to read first
 
 1. Read the target project's current `README.md` if it exists.
@@ -30,6 +58,25 @@ Do not turn the base coordinator/coder/task-stage skills into architecture- or p
 5. Read [question-bank.md](references/question-bank.md).
 6. Read [materialization-map.md](references/materialization-map.md).
 7. Read [output-map.md](references/output-map.md).
+
+## Interview Execution
+
+Use `references/question-bank.md` as a section-by-section interview script.
+
+- Ask every section unless the human explicitly narrows scope or asks for placeholder scaffolding.
+- If repository evidence already answers a question, present the inferred answer briefly and ask for confirmation rather than silently assuming it.
+- Batch related questions to keep the interview efficient, but do not skip sections.
+- When answers conflict with repository evidence, ask the human to resolve the conflict before materializing the affected files.
+
+## Materialization Standard
+
+When generating the target harness:
+
+- Use the bundled templates as source material, not as final output verbatim.
+- Replace placeholders with interview answers where the answers are known.
+- Omit files intentionally when the interview says they are unnecessary.
+- Keep long operational detail in `docs/harness/*.md` and link to those docs from the thinner project policy/workflow skills.
+- Make unresolved areas obvious with explicit placeholders rather than vague prose.
 
 # Agent Harness Gist
 
