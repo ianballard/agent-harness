@@ -26,7 +26,8 @@ Follow this sequence.
    - read `README.md` if present
    - read `CLAUDE.md` if present
    - inspect obvious run/test docs that materially affect the developer loop
-2. Run a short human interview using `references/question-bank.md`.
+2. Conduct a short human interview using `references/question-bank.md`.
+   - this step is mandatory and may not be skipped based on repository evidence alone
 3. Normalize the answers into the structure in `references/project-inputs.md`.
 4. Identify unresolved items:
    - mark them as `UNRESOLVED`
@@ -38,9 +39,12 @@ Follow this sequence.
    - bundled templates under `assets/templates/`
 6. Summarize what was generated, what was intentionally omitted, and which signals should trigger migration to the full harness.
 
+Do not materialize, overwrite, or scaffold any files until the interview answers have been collected and normalized.
+
 ## Hard Rules
 
 - Keep the scaffold intentionally small.
+- Never skip the human interview, even if `README.md`, `CLAUDE.md`, or existing repository structure appears to answer most questions.
 - Do not generate coordinator, intake, closeout, hook, settings, or integrity machinery unless the human explicitly asks for it.
 - If the repo has a lightweight task workflow, capture it tersely without forcing the full task-system policy surface.
 - Do not infer deployment permissions, cloud identities, or environment mutation rules.
@@ -63,7 +67,7 @@ Follow this sequence.
 Use `references/question-bank.md` as a concise checklist.
 
 - Keep the interview short.
-- Confirm repo evidence when it is obvious instead of re-asking from scratch.
+- Use repo evidence to prefill or shorten interview questions, but still present the interview to the human and obtain confirmation for inferred answers.
 - Record unresolved items explicitly.
 - Stop and ask the human if a missing answer would weaken deployment or git safety beyond a reasonable assumption.
 
