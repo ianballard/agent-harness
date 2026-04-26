@@ -74,4 +74,40 @@ describe("App", () => {
       expect(screen.getByText("A user with this email already exists.")).toBeInTheDocument()
     );
   });
+
+  it("restores an authenticated session from session storage and loads the profile", async () => {
+    window.sessionStorage.setItem("myproject.accessToken", "saved-token");
+    getProfile.mockResolvedValue({
+      id: 11,
+      email: "saved@example.com",
+      full_name: "Saved User",
+      created_at: "2026-04-26T20:00:00Z",
+    });
+
+    render(<App />);
+
+    await waitFor(() =>
+      expect(screen.getByRole("heading", { name: "Saved User" })).toBeInTheDocument()
+    );
+    expect(getProfile).toHaveBeenCalledWith("saved-token");
+    expect(screen.getByText("saved@example.com")).toBeInTheDocument();
+  });
+
+  it("shows invalid login responses returned by the service layer", async () => {
+    const user = userEvent.setup();
+
+    login.mockRejectedValue(
+      new AuthServiceError("invalid_login", "Invalid email or password.", 401)
+    );
+
+    render(<App />);
+
+    await user.type(screen.getByLabelText("Email"), "person@example.com");
+    await user.type(screen.getByLabelText("Password"), "wrong-password");
+    await user.click(screen.getAllByRole("button", { name: "Log in" }).at(-1));
+
+    await waitFor(() =>
+      expect(screen.getByText("Invalid email or password.")).toBeInTheDocument()
+    );
+  });
 });
