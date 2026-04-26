@@ -1,17 +1,48 @@
 {
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1"
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
+    "TASK_SYSTEM_NAME": "Backlog.md CLI",
+    "LOG_REMOTE_QUERY_ADAPTER": "scripts/log_remote_adapter.sh",
+    "LOG_LOCAL_ROOT": "./logs",
+    "DEPLOY_CONTEXT_KEY": "UNRESOLVED_DEPLOY_CONTEXT_KEY",
+    "DEPLOY_ALLOWED_VALUES": "sandbox,default,dev",
+    "DEPLOY_FORBIDDEN_VALUES": "prod,production,staging,main",
+    "CLOUD_PROVIDER": "aws",
+    "CLOUD_REQUIRED_IDENTITY": "jg-sandbox",
+    "TASK_ALLOWED_OPERATIONS": "create,list,read,claim,plan,notes,ac_update,summary,complete",
+    "REMOTE_LOG_ENV_SELECTOR": "jg-sandbox"
   },
+  "task_system": "Backlog.md CLI",
+  "preferred_log_mode": "both",
+  "remote_log_adapter": "scripts/log_remote_adapter.sh",
+  "deploy_context_key": "UNRESOLVED_DEPLOY_CONTEXT_KEY",
+  "allowed_deploy_contexts": [
+    "sandbox",
+    "default",
+    "dev"
+  ],
+  "forbidden_deploy_contexts": [
+    "prod",
+    "production",
+    "staging",
+    "main"
+  ],
+  "cloud_provider": "aws",
+  "required_cloud_identity": "jg-sandbox",
   "permissions": {
     "allow": [],
     "deny": [
     ]
   },
-  "hooks": {                                                              
+  "hooks": {
   },
   "enabledPlugins": {
     "claude-md-management@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true
-  }
+  },
+  "notes": [
+    "Observability backend and remote source aliases remain UNRESOLVED.",
+    "Hook integration for audit logging, secret blocking, and exfiltration control remains UNRESOLVED."
+  ]
 }

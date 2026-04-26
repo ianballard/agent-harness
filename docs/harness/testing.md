@@ -1,0 +1,21 @@
+# Testing
+
+- Targeted tests:
+  - `cd frontend && npm test`
+  - `cd backend && source .venv/bin/activate && pytest`
+- Broader suites:
+  - run both targeted suites when a change spans frontend and backend
+  - run Playwright on affected workflows
+- E2E requirements:
+  - Playwright is required for every code change
+  - smoke coverage is the minimum
+  - new functionality requires new e2e coverage
+  - e2e serves as the integration layer
+- Deploy-before-e2e matrix:
+  - app changes -> local deploy not required
+  - auth/profile changes -> local deploy not required
+  - terraform changes -> app e2e deploy not required, infra validation workflow `UNRESOLVED`
+- Manual verification rules:
+  - may supplement automated checks
+  - does not replace required Playwright coverage
+  - blocked or skipped checks must be recorded explicitly in the task

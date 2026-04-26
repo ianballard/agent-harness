@@ -1,0 +1,21 @@
+# Deployment
+
+- Platform/provider: `AWS`
+- IaC: `Terraform`
+- Safe commands:
+  - non-destructive AWS read commands with `--profile jg-sandbox`
+  - `terraform plan -var="aws_profile=jg-sandbox"`
+- Restricted commands:
+  - `terraform apply -var="aws_profile=jg-sandbox"` only for approved `dev` rollout work
+- Forbidden commands:
+  - destructive AWS commands
+  - destructive Terraform commands
+  - any AWS command without `--profile jg-sandbox`
+  - any `terraform plan` or `terraform apply` without `-var="aws_profile=jg-sandbox"`
+  - any rollout to non-dev environments
+- Allowed environments: `sandbox`, `default`, and `dev` when tied to the `jg-sandbox` profile and explicit rollout approval
+- Forbidden environments: all others
+- Workflow:
+  - exact build/package/publish commands are `UNRESOLVED`
+  - preview with Terraform plan
+  - apply only with explicit approval and smallest relevant scope
