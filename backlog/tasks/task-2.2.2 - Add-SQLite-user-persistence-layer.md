@@ -1,11 +1,11 @@
 ---
 id: TASK-2.2.2
 title: Add SQLite user persistence layer
-status: In Progress
+status: Done
 assignee:
   - '@task-intake'
 created_date: '2026-04-26 16:58'
-updated_date: '2026-04-26 17:13'
+updated_date: '2026-04-26 17:15'
 labels:
   - backend
   - sqlite
@@ -52,6 +52,12 @@ Following the task's Implementation Plan as written. Discovery is limited to the
 
 Implemented backend SQLite persistence only. Files: backend/app/config.py (added SQLITE_DB_PATH setting), backend/app/main.py (initialize DB at app startup), backend/app/db.py (SQLite schema/init/connection helpers), backend/app/repositories/__init__.py (repository exports), backend/app/repositories/users.py (user create/read repository), backend/tests/test_user_repository.py (SQLite persistence tests), backend/.env.example (local DB config example). Verification: python3 -m pytest backend/tests -> 5 passed; python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000 + npx playwright test e2e/backend-scaffold.spec.js -> 1 passed. Non-obvious decision: used stdlib sqlite3 instead of adding an ORM because this task only requires local SQLite config, schema, and create/read repository behavior.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Added SQLite configuration, database initialization, and a user repository for create/read operations using stdlib sqlite3. Verification recorded on task: backend pytest suite passed and backend smoke e2e passed against a running FastAPI app. Scope remained limited to persistence-layer work and supporting backend bootstrap only.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
