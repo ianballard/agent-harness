@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from functools import lru_cache
 import os
+from pathlib import Path
 
 
 def _split_csv(value: str) -> list[str]:
@@ -15,6 +16,7 @@ class Settings:
     docs_url: str = "/docs"
     openapi_url: str = "/openapi.json"
     cors_origins: tuple[str, ...] = ("http://localhost:5173",)
+    sqlite_db_path: Path = Path(__file__).resolve().parents[1] / "myproject.db"
 
 
 @lru_cache
@@ -28,5 +30,10 @@ def get_settings() -> Settings:
         cors_origins=tuple(
             _split_csv(os.getenv("CORS_ORIGINS", "http://localhost:5173"))
         ),
+        sqlite_db_path=Path(
+            os.getenv(
+                "SQLITE_DB_PATH",
+                str(Path(__file__).resolve().parents[1] / "myproject.db"),
+            )
+        ),
     )
-
