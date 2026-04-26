@@ -1,10 +1,11 @@
 ---
 id: TASK-2.1
 title: Wire frontend auth flow to backend API
-status: To Do
-assignee: []
+status: Done
+assignee:
+  - '@task-intake'
 created_date: '2026-04-26 16:48'
-updated_date: '2026-04-26 16:49'
+updated_date: '2026-04-26 21:57'
 labels:
   - frontend
   - backend
@@ -29,15 +30,39 @@ Connect the frontend auth and profile views to the implemented backend API, pers
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Frontend signup submits to the real backend API and succeeds when the backend creates the user record.
-- [ ] #2 Frontend login uses the implemented backend auth flow and stores the authenticated session or token needed for subsequent requests.
-- [ ] #3 The profile view calls the authenticated backend profile endpoint and displays the saved user information returned from SQLite.
-- [ ] #4 The integrated browser flow handles invalid login and duplicate signup API responses with user-visible feedback.
-- [ ] #5 Integration-level checks relevant to the frontend/backend auth wiring are added or updated for this task as appropriate.
+- [x] #1 Frontend signup submits to the real backend API and succeeds when the backend creates the user record.
+- [x] #2 Frontend login uses the implemented backend auth flow and stores the authenticated session or token needed for subsequent requests.
+- [x] #3 The profile view calls the authenticated backend profile endpoint and displays the saved user information returned from SQLite.
+- [x] #4 The integrated browser flow handles invalid login and duplicate signup API responses with user-visible feedback.
+- [x] #5 Integration-level checks relevant to the frontend/backend auth wiring are added or updated for this task as appropriate.
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. Connect the existing frontend auth and profile screens to the live backend API contract for signup, login, and authenticated profile retrieval without expanding backend endpoint scope unless an integration defect blocks completion. 2. Persist authenticated client state needed for follow-on profile requests and user session continuity within the frontend scope defined by the task. 3. Add or update integration-focused validation for the frontend/backend auth wiring, including browser-level coverage for success and error paths called out in the acceptance criteria. 4. Keep out of scope: backend auth model redesign, schema changes, deployment/infrastructure work, or unrelated UI refactors. Broaden scope only if existing backend/frontend contracts are incompatible in a way that prevents satisfying the stated end-to-end auth flow.
+<!-- SECTION:PLAN:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Intake risk classification: High. Trigger: auth or identity behavior changes via frontend wiring of signup, login, token/session storage, and authenticated profile access against live backend APIs. Independent review required before closeout.
+
+Following the task implementation plan against the existing frontend auth shell and backend auth/profile API. Discovery limited the scoped implementation surface to frontend/src/App.jsx, frontend/src/services/*, and integration/browser tests; no backend endpoint expansion is planned unless an integration defect blocks completion.
+
+Implemented frontend/backend auth integration validation updates. Modified files: frontend/src/App.test.jsx (added coverage for stored-session profile restore and invalid-login feedback), e2e/frontend-auth.spec.js (extended browser flow to verify session persistence across reload), backlog/tasks/task-2.1 - Wire-frontend-auth-flow-to-backend-API.md (task record updated via CLI). Verification: cd frontend && npm test; cd frontend && npm run build; cd backend && python3 -m pytest; npx playwright test e2e/frontend-auth.spec.js. All passed.
+
+Closeout merge guard: compared feature/task-2.1-wire-frontend-auth-backend against develop. Scoped diff files: frontend/src/App.test.jsx, e2e/frontend-auth.spec.js, and the task record only. Unrelated working tree items backend/myproject.db and frontend/dist/ remain outside the task commit.
+<!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Validated the frontend-to-backend auth wiring against the implemented FastAPI auth/profile API. Verified duplicate signup and invalid login feedback, authenticated profile retrieval from persisted backend data, and session restore behavior after reload through updated frontend tests and Playwright coverage. Merge guard against develop passed with task-scoped diff only.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 Required automated validation for the integrated auth/profile workflow passes for this task's scope.
-- [ ] #2 Implementation notes and verification evidence are recorded on the task.
+- [x] #1 Required automated validation for the integrated auth/profile workflow passes for this task's scope.
+- [x] #2 Implementation notes and verification evidence are recorded on the task.
 <!-- DOD:END -->
