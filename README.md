@@ -23,12 +23,12 @@ npm install
 npm run dev
 ```
 
-App runs at http://localhost:5173. API requests proxied to the backend automatically.
+App runs at http://localhost:5173. API requests to `/api/*` are proxied to the backend at http://127.0.0.1:8000 automatically.
 
 ## Architecture
 
 - `backend/` — FastAPI app scaffold with app factory, router wiring, and shared settings
-- `frontend/` — Vite + React SPA, axios with token interceptor
+- `frontend/` — Vite + React SPA with an auth service layer for signup, login, and profile retrieval
 
 ## Notes
 
@@ -67,8 +67,15 @@ source .venv/bin/activate
 uvicorn main:app --reload
 ```
 
-Then run the smoke test from the repo root:
+Install frontend dependencies once if you have not already:
 
 ```bash
-npx playwright test e2e/backend-scaffold.spec.js
+cd frontend
+npm install
+```
+
+Then run the smoke tests from the repo root:
+
+```bash
+npx playwright test e2e/backend-scaffold.spec.js e2e/frontend-auth.spec.js
 ```

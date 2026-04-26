@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@task-intake'
 created_date: '2026-04-26 16:58'
-updated_date: '2026-04-26 17:32'
+updated_date: '2026-04-26 17:34'
 labels:
   - backend
   - auth
@@ -78,6 +78,8 @@ Implementation contract: following the task Implementation Plan as provided; no 
 - Verification: cd backend && pytest -> passed (11 tests).
 - Verification: npx playwright test e2e/auth-api.spec.js -> passed.
 - Note: local Playwright smoke passed against the backend available on http://127.0.0.1:8000; a separate uvicorn start attempt encountered a bind error because that port was already in use.
+
+Closeout merge guard: compared branch diff against develop. Unexpected files outside TASK-2.2.4 scope remain in the diff: backend/.env.example, backend/app/config.py, backlog/tasks/task-2.2.3 - Implement-signup-and-login-API-flow.md. Closeout blocked until the branch scope is isolated or guidance updates the comparison rule.
 <!-- SECTION:NOTES:END -->
 
 ## Definition of Done
