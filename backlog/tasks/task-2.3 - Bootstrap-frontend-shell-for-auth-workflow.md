@@ -1,11 +1,11 @@
 ---
 id: TASK-2.3
 title: Bootstrap frontend shell for auth workflow
-status: In Progress
+status: Done
 assignee:
   - '@task-intake'
 created_date: '2026-04-26 16:48'
-updated_date: '2026-04-26 21:46'
+updated_date: '2026-04-26 21:49'
 labels:
   - frontend
   - react
@@ -67,6 +67,12 @@ Resume note:
 - Verification: `npx playwright test e2e/frontend-auth.spec.js` passed (1 test).
 - Local-only generated artifacts remain unstaged: `frontend/dist/` from the build and `backend/myproject.db` updated by local test runs.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Closed after frontend auth shell verification completed on 2026-04-26. Acceptance criteria remain satisfied: Vite React scaffold, signup/login/profile views, centralized API service boundary, user-visible auth error handling, and updated local run instructions. Verification confirmed during resume: frontend unit tests passed, frontend build passed, backend pytest passed, and Playwright frontend auth smoke coverage passed. Merge guard against develop includes only task-scope frontend files plus this task record. Residual local artifacts not part of closeout remain unstaged: frontend/dist/ and backend/myproject.db.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
