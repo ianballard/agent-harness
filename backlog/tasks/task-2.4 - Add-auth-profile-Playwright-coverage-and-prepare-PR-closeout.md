@@ -1,7 +1,7 @@
 ---
 id: TASK-2.4
 title: Add auth/profile Playwright coverage and prepare PR closeout
-status: In Progress
+status: Done
 assignee:
   - '@task-intake'
 created_date: '2026-04-26 16:48'
