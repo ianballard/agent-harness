@@ -38,6 +38,23 @@ App runs at http://localhost:5173. API requests to `/api/*` are proxied to the b
 
 ## Testing
 
+### Full local auth workflow
+
+Run the backend and frontend in separate terminals when you want to exercise the integrated app manually:
+
+```bash
+cd backend
+source .venv/bin/activate
+uvicorn main:app --reload
+```
+
+```bash
+cd frontend
+npm run dev
+```
+
+The browser app runs at http://localhost:5173 and proxies `/api/*` requests to the FastAPI service at http://127.0.0.1:8000.
+
 ### Frontend
 
 ```bash
@@ -77,7 +94,9 @@ npm install
 Then run the smoke tests from the repo root:
 
 ```bash
-npx playwright test e2e/backend-scaffold.spec.js e2e/frontend-auth.spec.js
+npx playwright test e2e/auth-api.spec.js e2e/frontend-auth.spec.js
 ```
 
-Playwright starts the backend and frontend dev servers automatically from the repo configuration.
+`e2e/auth-api.spec.js` validates signup, login, and authenticated profile retrieval at the API layer. `e2e/frontend-auth.spec.js` validates the browser flow for signup, duplicate-signup feedback, invalid login feedback, successful login, and persisted profile rendering after reload.
+
+Playwright starts the backend and frontend dev servers automatically from the repo configuration, so manual server startup is not required for the smoke suite.
