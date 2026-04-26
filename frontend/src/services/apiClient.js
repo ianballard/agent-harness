@@ -10,11 +10,11 @@ const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? "/api";
 
 export async function apiRequest(path, options = {}) {
   const response = await fetch(`${apiBaseUrl}${path}`, {
+    ...options,
     headers: {
       "Content-Type": "application/json",
       ...(options.headers ?? {}),
     },
-    ...options,
   });
 
   const contentType = response.headers.get("content-type") ?? "";
