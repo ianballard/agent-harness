@@ -1,11 +1,11 @@
 ---
 id: TASK-2.1
 title: Wire frontend auth flow to backend API
-status: In Progress
+status: Done
 assignee:
   - '@task-intake'
 created_date: '2026-04-26 16:48'
-updated_date: '2026-04-26 21:55'
+updated_date: '2026-04-26 21:57'
 labels:
   - frontend
   - backend
@@ -51,7 +51,15 @@ Intake risk classification: High. Trigger: auth or identity behavior changes via
 Following the task implementation plan against the existing frontend auth shell and backend auth/profile API. Discovery limited the scoped implementation surface to frontend/src/App.jsx, frontend/src/services/*, and integration/browser tests; no backend endpoint expansion is planned unless an integration defect blocks completion.
 
 Implemented frontend/backend auth integration validation updates. Modified files: frontend/src/App.test.jsx (added coverage for stored-session profile restore and invalid-login feedback), e2e/frontend-auth.spec.js (extended browser flow to verify session persistence across reload), backlog/tasks/task-2.1 - Wire-frontend-auth-flow-to-backend-API.md (task record updated via CLI). Verification: cd frontend && npm test; cd frontend && npm run build; cd backend && python3 -m pytest; npx playwright test e2e/frontend-auth.spec.js. All passed.
+
+Closeout merge guard: compared feature/task-2.1-wire-frontend-auth-backend against develop. Scoped diff files: frontend/src/App.test.jsx, e2e/frontend-auth.spec.js, and the task record only. Unrelated working tree items backend/myproject.db and frontend/dist/ remain outside the task commit.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Validated the frontend-to-backend auth wiring against the implemented FastAPI auth/profile API. Verified duplicate signup and invalid login feedback, authenticated profile retrieval from persisted backend data, and session restore behavior after reload through updated frontend tests and Playwright coverage. Merge guard against develop passed with task-scoped diff only.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
