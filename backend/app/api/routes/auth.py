@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 
 from app.auth import create_access_token, hash_password, verify_password
 from app.config import Settings, get_settings
+from app.api.dependencies import get_user_repository
 from app.repositories.users import SQLiteUserRepository, UserCreate, UserRecord
 
 
@@ -34,10 +35,6 @@ class UserResponse(BaseModel):
 class LoginResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"
-
-
-def get_user_repository(settings: Settings = Depends(get_settings)) -> SQLiteUserRepository:
-    return SQLiteUserRepository(settings.sqlite_db_path)
 
 
 @router.post(

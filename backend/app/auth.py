@@ -6,6 +6,7 @@ import hashlib
 import hmac
 import json
 import secrets
+from typing import Any
 
 from app.config import Settings
 
@@ -73,6 +74,38 @@ def create_access_token(*, user_id: int, settings: Settings) -> str:
     ).digest()
     signature_b64 = _encode_base64(signature)
     return f"{payload_b64}.{signature_b64}"
+
+
+def decode_access_token(token: str, settings: Settings) -> dict[str, Any] | None:
+    try:
+        payload_b64, signature_b64 = token.split(".")
+    except ValueError:
+        return None
+
+    expected_signature = hmac.new(
+        settings.secret_key.encode("utf-8"),
+        payload_b64.encode("ascii"),
+        hashlib.sha256,
+    ).digest()
+    actual_signature = _decode_base64(signature_b64)
+    if actual_signature is None or not hmac.compare_digest(
+        actual_signature, expected_signature
+    ):
+        return None
+
+    payload_bytes = _decode_base64(payload_b64)
+    if payload_bytes is None:
+        return None
+
+    try:
+        payload = json.loads(payload_bytes)
+    except json.JSONDecodeError:
+        return None
+
+    if not isinstance(payload, dict):
+        return None
+
+    return payload
 
 
 def _encode_base64(value: bytes) -> str:

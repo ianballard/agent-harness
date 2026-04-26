@@ -1,6 +1,6 @@
 const { test, expect } = require("playwright/test");
 
-test("auth API supports signup, duplicate rejection, and login", async ({ request, baseURL }) => {
+test("auth API supports signup, login, and authenticated profile retrieval", async ({ request, baseURL }) => {
   const email = `user-${Date.now()}@example.com`;
   const signupPayload = {
     email,
@@ -32,7 +32,25 @@ test("auth API supports signup, duplicate rejection, and login", async ({ reques
   });
 
   expect(loginResponse.ok()).toBeTruthy();
-  await expect(loginResponse.json()).resolves.toMatchObject({
+  const loginBody = await loginResponse.json();
+
+  expect(loginBody).toMatchObject({
     token_type: "bearer",
+  });
+
+  const unauthorizedProfileResponse = await request.get(`${baseURL}/api/profile`);
+
+  expect(unauthorizedProfileResponse.status()).toBe(401);
+
+  const profileResponse = await request.get(`${baseURL}/api/profile`, {
+    headers: {
+      Authorization: `Bearer ${loginBody.access_token}`,
+    },
+  });
+
+  expect(profileResponse.ok()).toBeTruthy();
+  await expect(profileResponse.json()).resolves.toMatchObject({
+    email,
+    full_name: "Playwright User",
   });
 });
