@@ -1,11 +1,11 @@
 ---
 id: TASK-2.3
 title: Bootstrap frontend shell for auth workflow
-status: In Progress
+status: Done
 assignee:
   - '@task-intake'
 created_date: '2026-04-26 16:48'
-updated_date: '2026-04-26 21:11'
+updated_date: '2026-04-26 21:49'
 labels:
   - frontend
   - react
@@ -28,11 +28,11 @@ Initialize the Vite + React frontend under frontend/, add the application shell,
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 A Vite React application is initialized under frontend/ with scripts and project structure required to run locally.
-- [ ] #2 The frontend includes signup, login, and profile views with navigation or flow control for moving between them.
-- [ ] #3 Frontend auth/profile data access is centralized behind a client or service layer that targets the backend API contract rather than mock-only state.
-- [ ] #4 User-visible error handling is implemented in the frontend for invalid login and duplicate signup responses.
-- [ ] #5 Local run instructions for the frontend are present or updated as needed for this task's scope.
+- [x] #1 A Vite React application is initialized under frontend/ with scripts and project structure required to run locally.
+- [x] #2 The frontend includes signup, login, and profile views with navigation or flow control for moving between them.
+- [x] #3 Frontend auth/profile data access is centralized behind a client or service layer that targets the backend API contract rather than mock-only state.
+- [x] #4 User-visible error handling is implemented in the frontend for invalid login and duplicate signup responses.
+- [x] #5 Local run instructions for the frontend are present or updated as needed for this task's scope.
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -57,11 +57,26 @@ Files created: `frontend/package.json` (frontend scripts and deps), `frontend/in
 Files updated: `playwright.config.js` (backend + frontend web servers for e2e), `README.md` (frontend run/test instructions).
 Verification: `cd backend && source .venv/bin/activate && pytest` passed (11 tests).
 Blocked verification: `cd frontend && npm install --verbose` failed with `ENOTFOUND registry.npmjs.org`; no local npm cache for React/Vite/Vitest packages was present. Because frontend dependencies could not be installed, `npx playwright test e2e/auth-api.spec.js` failed before execution with `vite: command not found`, so frontend unit tests and Playwright frontend smoke coverage remain blocked by environment package access.
+
+Resume note:
+- Existing frontend implementation was validated rather than reimplemented.
+- Files modified in this resume: `frontend/package-lock.json` (lockfile produced by successful frontend dependency install), `frontend/src/App.test.jsx` (fixed ambiguous Testing Library selectors and added explicit cleanup), `e2e/frontend-auth.spec.js` (fixed ambiguous Playwright selectors by targeting auth nav vs auth form controls).
+- Verification: `cd frontend && npm test` passed (6 tests).
+- Verification: `cd frontend && npm run build` passed.
+- Verification: `cd backend && pytest` passed (11 tests) using the available local Python environment; the checked-in `backend/.venv` path in earlier notes was not a usable activate target in this workspace.
+- Verification: `npx playwright test e2e/frontend-auth.spec.js` passed (1 test).
+- Local-only generated artifacts remain unstaged: `frontend/dist/` from the build and `backend/myproject.db` updated by local test runs.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Closed after frontend auth shell verification completed on 2026-04-26. Acceptance criteria remain satisfied: Vite React scaffold, signup/login/profile views, centralized API service boundary, user-visible auth error handling, and updated local run instructions. Verification confirmed during resume: frontend unit tests passed, frontend build passed, backend pytest passed, and Playwright frontend auth smoke coverage passed. Merge guard against develop includes only task-scope frontend files plus this task record. Residual local artifacts not part of closeout remain unstaged: frontend/dist/ and backend/myproject.db.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 Frontend unit or app-level checks relevant to the changed surface pass.
-- [ ] #2 Any task-local documentation updates needed for the frontend setup are included.
-- [ ] #3 Implementation notes and verification evidence are recorded on the task.
+- [x] #1 Frontend unit or app-level checks relevant to the changed surface pass.
+- [x] #2 Any task-local documentation updates needed for the frontend setup are included.
+- [x] #3 Implementation notes and verification evidence are recorded on the task.
 <!-- DOD:END -->
