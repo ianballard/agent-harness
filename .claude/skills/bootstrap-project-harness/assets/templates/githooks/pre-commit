@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Versioned pre-commit hook template.
+# Bootstrap should replace placeholders and extend checks from interview input.
+
+scripts/guard_task_interface.sh --operation read >/dev/null
+
+if git diff --cached --name-only | grep -E '(^CLAUDE\.md$|^\.claude/agents/|^\.claude/skills/)' >/dev/null 2>&1; then
+  if [[ "${CLAUDE_APPROVED_PROJECT_GUIDANCE_EDIT:-0}" != "1" ]]; then
+    echo "Blocked: guidance edits require CLAUDE_APPROVED_PROJECT_GUIDANCE_EDIT=1" >&2
+    exit 1
+  fi
+fi
+
+if git diff --cached | grep -E '(AWS_SECRET_ACCESS_KEY|BEGIN [A-Z ]*PRIVATE KEY|api[_-]?key|secret[_-]?key)' >/dev/null 2>&1; then
+  echo "Blocked: possible secret material detected in staged diff" >&2
+  exit 1
+fi

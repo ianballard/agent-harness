@@ -49,6 +49,15 @@ Use this map to render the bundled factory into a target project. Treat the bund
 - `assets/templates/scripts/guard_cloud_identity.sh` -> `scripts/guard_cloud_identity.sh`
 - `assets/templates/scripts/guard_task_interface.sh` -> `scripts/guard_task_interface.sh`
 - `assets/templates/scripts/log_remote_adapter.sh` -> `scripts/log_remote_adapter.sh`
+- `assets/templates/scripts/claude_hook_pre_tool_use.sh` -> `scripts/claude_hook_pre_tool_use.sh`
+- `assets/templates/scripts/claude_hook_post_tool_use.sh` -> `scripts/claude_hook_post_tool_use.sh`
+- `assets/templates/scripts/install_githooks.sh` -> `scripts/install_githooks.sh`
+
+## Versioned git hooks
+
+- `assets/templates/githooks/pre-commit` -> `.githooks/pre-commit`
+- `assets/templates/githooks/commit-msg` -> `.githooks/commit-msg`
+- `assets/templates/githooks/pre-push` -> `.githooks/pre-push`
 
 ## Settings templates
 
@@ -62,9 +71,12 @@ Use this map to render the bundled factory into a target project. Treat the bund
 - `assets/templates/docs/harness/deployment.md` -> `docs/harness/deployment.md`
 - `assets/templates/docs/harness/observability.md` -> `docs/harness/observability.md`
 - `assets/templates/docs/harness/architecture.md` -> `docs/harness/architecture.md`
+- `assets/templates/docs/harness/hooks.md` -> `docs/harness/hooks.md`
 
 ## Notes
 
 - Fill placeholders using interview answers.
 - If a target project does not need a file, omit it intentionally and record that decision.
 - Project-specific extra skills may be created in addition to this base set.
+- Do not install directly into `.git/hooks/` during bootstrap. Materialize versioned hooks into `.githooks/` and install them via `git config core.hooksPath .githooks`.
+- Materialize Claude hook commands in `.claude/settings.local.json` using absolute script paths rooted at the target repository.
