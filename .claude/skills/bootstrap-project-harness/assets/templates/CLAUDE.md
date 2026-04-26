@@ -13,17 +13,17 @@ Coordinator and coder step bodies are extracted into per-stage skills under **`s
 
 > **Note:** `agents/` YAML (`name: coder`) defines spawnable agents where Claude Code or Codex exposes them. Plugin agents are invoked by name on the Agent tool.
 
-### Harness Customization Skills
+### Project Customization Skills
 
 These skills are the project-local customization layer for the generic harness. In a bootstrap harness, keep these as templates with placeholders until a concrete project fills them in.
 
-- `skills/harness_task_system_policy/SKILL.md` — how tasks are selected, read, updated, and completed
-- `skills/harness_risk_policy/SKILL.md` — task-risk classification, escalation triggers, and review thresholds
-- `skills/harness_testing_policy/SKILL.md` — default verification strategy and when to broaden validation
-- `skills/harness_deployment_policy/SKILL.md` — environment rules, deployment gates, and infrastructure safety constraints
-- `skills/harness_deployment_workflow/SKILL.md` — concrete packaging, build, publish, and rollout workflow
-- `skills/harness_observability_workflow/SKILL.md` — logging architecture and failure-diagnosis workflow
-- `skills/harness_git_policy/SKILL.md` — staging, commit, branch, and push behavior
+- `skills/project_policy_task_system/SKILL.md` — how tasks are selected, read, updated, and completed
+- `skills/project_policy_risk/SKILL.md` — task-risk classification, escalation triggers, and review thresholds
+- `skills/project_policy_testing/SKILL.md` — default verification strategy and when to broaden validation
+- `skills/project_policy_deployment/SKILL.md` — environment rules, deployment gates, and infrastructure safety constraints
+- `skills/project_workflow_deployment/SKILL.md` — concrete packaging, build, publish, and rollout workflow
+- `skills/project_workflow_observability/SKILL.md` — logging architecture and failure-diagnosis workflow
+- `skills/project_policy_git/SKILL.md` — staging, commit, branch, and push behavior
 
 Optional project-local skills may also exist for:
 - architecture or ontology context

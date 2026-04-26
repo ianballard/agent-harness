@@ -5,8 +5,8 @@ description: Use for coder, running required e2e validation and diagnosing failu
 
 **Run e2e tests**
 
-Use `harness-testing-policy` for whether e2e coverage is required.
-Use `harness-observability-workflow` for how to diagnose workflow failures.
+Use `project-policy-testing` for whether e2e coverage is required.
+Use `project-workflow-observability` for how to diagnose workflow failures.
 Use any project-local e2e workflow doc or skill for concrete commands, fixtures, budgets, and artifact paths.
 
 Run only the e2e coverage required by the configured project-local testing workflow. Do not invent categories, retry budgets, artifact formats, or runner commands unless the project-local e2e workflow defines them.

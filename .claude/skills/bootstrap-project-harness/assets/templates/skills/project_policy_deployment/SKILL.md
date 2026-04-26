@@ -1,9 +1,9 @@
 ---
-name: harness-deployment-policy
-description: Project-local deployment and environment policy for the harness. Defines what deploy actions are allowed, what is forbidden, and which safeguards are required before environment changes.
+name: project-policy-deployment
+description: Project-local deployment and environment policy. Defines what deploy actions are allowed, what is forbidden, and which safeguards are required before environment changes.
 ---
 
-# Harness Deployment Policy
+# Project Deployment Policy
 
 Use this skill whenever coder, intake, or coordinator needs project-specific deployment and infrastructure rules.
 

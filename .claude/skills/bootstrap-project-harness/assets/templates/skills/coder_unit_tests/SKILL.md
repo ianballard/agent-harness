@@ -5,7 +5,7 @@ description: Use for coder, creating or updating tests and running unit validati
 
 **Create/Update Unit Tests and Run All Unit Tests**
 
-Use `harness-testing-policy` as the source of truth for how broad validation should be for this project.
+Use `project-policy-testing` as the source of truth for how broad validation should be for this project.
 
 Create or update relevant and useful tests. Run validation proportionate to the task risk and the coordinator plan.
 

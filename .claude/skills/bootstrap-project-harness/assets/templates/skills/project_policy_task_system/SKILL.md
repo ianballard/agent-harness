@@ -1,9 +1,9 @@
 ---
-name: harness-task-system-policy
-description: Project-local task system policy for the harness. Defines how work is selected, read, updated, and completed so the generic SDLC agents can operate against the repository's chosen task system.
+name: project-policy-task-system
+description: Project-local task system policy. Defines how work is selected, read, updated, and completed so the generic SDLC agents can operate against the repository's chosen task system.
 ---
 
-# Harness Task System Policy
+# Project Task System Policy
 
 Use this skill whenever coordinator, task-intake, coder, or task-closeout needs task-system behavior that should remain customizable across projects.
 

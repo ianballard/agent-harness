@@ -1,9 +1,9 @@
 ---
-name: harness-observability-workflow
-description: Project-local observability and log-diagnosis workflow for the harness. Defines the repository's logging architecture, diagnostic scripts, identifiers, and query patterns so failure analysis does not assume a specific platform.
+name: project-workflow-observability
+description: Project-local observability and log-diagnosis workflow. Defines the repository's logging architecture, diagnostic scripts, identifiers, and query patterns so failure analysis does not assume a specific platform.
 ---
 
-# Harness Observability Workflow
+# Project Observability Workflow
 
 Use this skill whenever coder, debugger, or another workflow needs the repository's concrete logging and diagnostics procedure.
 

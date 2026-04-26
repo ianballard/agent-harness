@@ -5,7 +5,7 @@ description: Use for coordinator, checking task-system work for a specific task 
 
 ## Check for work
 
-Use `harness-task-system-policy` for the repository's task selection rules.
+Use `project-policy-task-system` for the repository's task selection rules.
 
 If a task id was presented, read its details through the configured task interface.
 

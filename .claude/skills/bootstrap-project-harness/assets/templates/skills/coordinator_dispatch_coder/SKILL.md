@@ -5,7 +5,7 @@ description: Use for coordinator, dispatching coder and handling coder blocked r
 
 ## Dispatch coder
 
-Use `harness-task-system-policy` for task-note writes.
+Use `project-policy-task-system` for task-note writes.
 
 The coordinator already has the task content in context. Forward it in the prompt so the coder does not re-read it:
 

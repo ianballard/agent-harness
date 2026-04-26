@@ -1,9 +1,9 @@
 ---
-name: harness-risk-policy
-description: Project-local risk policy for the harness. Defines how intake classifies task risk, when work must be broken down, and when architecture or independent review becomes mandatory.
+name: project-policy-risk
+description: Project-local risk policy. Defines how intake classifies task risk, when work must be broken down, and when architecture or independent review becomes mandatory.
 ---
 
-# Harness Risk Policy
+# Project Risk Policy
 
 Use this skill when task-intake, coordinator, or review routing needs project-specific risk classification.
 

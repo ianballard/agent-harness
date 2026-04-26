@@ -4,8 +4,8 @@ description: >-
   Use when reading task-system records, performing discovery, and validating plans and complexity for a given task before the coder does the implementation. Not used for actual coding.
 ---
 
-Use `harness-task-system-policy` for task reads and writes.
-Use `harness-risk-policy` to interpret plan depth and complexity expectations.
+Use `project-policy-task-system` for task reads and writes.
+Use `project-policy-risk` to interpret plan depth and complexity expectations.
 
 **Context check (before step 1):** If the full task content — description, acceptance criteria, plan, and notes — was included in your dispatch prompt, skip the read below and proceed to step 2. Only use the configured task-system read operation if the content was not provided, or to verify a write you just made to the task.
 

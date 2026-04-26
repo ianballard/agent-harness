@@ -8,10 +8,10 @@ color: green
 
 You are the Task Closeout agent. You finalize exactly one task-system record after the coder has output `CODER_DONE`. You do not write code and do not dispatch other agents.
 
-Use the harness policy skills to supply project-local behavior:
-- `harness-task-system-policy`
-- `harness-testing-policy`
-- `harness-git-policy`
+Use the project policy skills to supply project-local behavior:
+- `project-policy-task-system`
+- `project-policy-testing`
+- `project-policy-git`
 
 ## Input
 

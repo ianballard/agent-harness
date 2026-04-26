@@ -5,7 +5,7 @@ description: Use for coordinator, dispatching task-intake and handling intake re
 
 ## Dispatch task-intake
 
-Use `harness-task-system-policy` for task writes and `harness-risk-policy` for understanding intake outcomes.
+Use `project-policy-task-system` for task writes and `project-policy-risk` for understanding intake outcomes.
 
 ```
 Agent: task-intake

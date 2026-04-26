@@ -1,9 +1,9 @@
 ---
-name: harness-git-policy
-description: Project-local git policy for the harness. Defines branching, staging, commit, and push behavior so the generic agents can follow the repository's collaboration model.
+name: project-policy-git
+description: Project-local git policy. Defines branching, staging, commit, and push behavior so the generic agents can follow the repository's collaboration model.
 ---
 
-# Harness Git Policy
+# Project Git Policy
 
 Use this skill whenever coder or closeout needs project-specific git workflow rules.
 

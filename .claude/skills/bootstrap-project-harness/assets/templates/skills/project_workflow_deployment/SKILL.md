@@ -1,11 +1,11 @@
 ---
-name: harness-deployment-workflow
-description: Project-local deployment workflow for the harness. Defines the repository's concrete deployment architecture, packaging steps, build artifacts, and apply sequence so the generic deploy step does not assume a specific cloud or runtime layout.
+name: project-workflow-deployment
+description: Project-local deployment workflow. Defines the repository's concrete deployment architecture, packaging steps, build artifacts, and apply sequence so the generic deploy step does not assume a specific cloud or runtime layout.
 ---
 
-# Harness Deployment Workflow
+# Project Deployment Workflow
 
-Use this skill whenever coder needs the repository's concrete deployment procedure after `harness-deployment-policy` has already established that deployment work is allowed.
+Use this skill whenever coder needs the repository's concrete deployment procedure after `project-policy-deployment` has already established that deployment work is allowed.
 
 ## Purpose
 
@@ -20,7 +20,7 @@ This skill is where those repository-specific details belong.
 
 ## Template Deployment Workflow
 
-Run deployment-oriented steps whenever the change affects the trigger surfaces defined in `harness-deployment-policy`.
+Run deployment-oriented steps whenever the change affects the trigger surfaces defined in `project-policy-deployment`.
 
 ### 1. Prepare Artifacts
 

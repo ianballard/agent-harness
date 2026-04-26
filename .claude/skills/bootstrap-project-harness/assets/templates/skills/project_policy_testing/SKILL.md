@@ -1,9 +1,9 @@
 ---
-name: harness-testing-policy
-description: Project-local testing and verification policy for the harness. Defines default validation expectations, when to broaden coverage, and how blocked or skipped verification should be reported.
+name: project-policy-testing
+description: Project-local testing and verification policy. Defines default validation expectations, when to broaden coverage, and how blocked or skipped verification should be reported.
 ---
 
-# Harness Testing Policy
+# Project Testing Policy
 
 Use this skill whenever coder, reviewer, or closeout needs project-specific verification rules.
 

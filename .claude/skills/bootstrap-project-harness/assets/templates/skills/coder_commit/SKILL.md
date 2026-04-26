@@ -5,7 +5,7 @@ description: Use for coder, explicitly staging scoped files and committing.
 
 **Commit**
 
-Use `harness-git-policy` as the source of truth for repository-specific commit and branch rules.
+Use `project-policy-git` as the source of truth for repository-specific commit and branch rules.
 
 If a pre-deploy commit was made for the given task, this step commits only the remaining explicitly staged files required by the project workflow. If no pre-deploy commit was needed, this is the single commit for all changes.
 

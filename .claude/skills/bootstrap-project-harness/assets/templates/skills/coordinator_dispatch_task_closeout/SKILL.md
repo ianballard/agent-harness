@@ -5,7 +5,7 @@ description: Use for coordinator, dispatching task-closeout and propagating comp
 
 ## Dispatch task-closeout
 
-Use `harness-task-system-policy` for completion writes and `harness-git-policy` for understanding closeout merge-guard behavior.
+Use `project-policy-task-system` for completion writes and `project-policy-git` for understanding closeout merge-guard behavior.
 
 On `CODER_DONE`:
 

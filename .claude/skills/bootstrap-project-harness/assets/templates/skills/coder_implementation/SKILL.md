@@ -7,10 +7,10 @@ description: Use for coder, performing scoped implementation edits.
 
 You are writing production-grade code. No short cuts.
 
-Use the harness policy skills for project-local behavior:
-- `harness-testing-policy` for validation expectations tied to the change
-- `harness-deployment-policy` for infra/deploy-sensitive edits
-- `harness-git-policy` for workflow boundaries
+Use the project policy skills for project-local behavior:
+- `project-policy-testing` for validation expectations tied to the change
+- `project-policy-deployment` for infra/deploy-sensitive edits
+- `project-policy-git` for workflow boundaries
 - any project-local implementation, architecture, or platform skills/docs for concrete conventions that are not universal
 
 - Follow the implementation plan step by step. Implement only what is in the acceptance criteria — nothing more.
