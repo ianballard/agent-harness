@@ -3,6 +3,39 @@
   "local_log_root": "<local-log-root>",
   "local_dev_command": "<local-dev-command>",
   "local_test_command": "<local-test-command>",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "<absolute-project-root>/scripts/claude_hook_pre_tool_use.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "<absolute-project-root>/scripts/claude_hook_pre_tool_use.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "<absolute-project-root>/scripts/claude_hook_post_tool_use.sh"
+          }
+        ]
+      }
+    ]
+  },
   "developer_overrides": {
     "preferred_log_mode": "<local|remote|both>"
   }

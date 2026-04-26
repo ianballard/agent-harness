@@ -109,15 +109,19 @@ If the human does not know an answer, record:
 7. What values indicate safe sandbox/dev/test targets?
 8. Which commands need context validation before they can run?
 9. Should the harness generate helper scripts for deployment-context checks, cloud-identity checks, task-interface checks, or remote-log adapters?
-10. Where should those scripts live, and how should hooks call them?
+10. Which Claude hook events and matchers should be wired in local settings?
+11. Which git hooks should be generated as versioned repo files?
+12. Where should those scripts and hooks live, and how should Claude hooks and git hooks call them?
+13. Where should audit logs for hook activity be written?
 
 ## 11. Settings Files
 
 1. Does the destination project need `.claude/settings.json`, `.claude/settings.local.json`, both, or neither?
 2. Which values should live in shared settings versus local-only settings?
 3. Should settings include task-system identifiers, logging mode, remote adapter wiring, deploy-context keys, or cloud identity defaults?
-4. Which values must never be materialized into shared settings?
-5. Should bootstrap create settings files immediately or leave template placeholders?
+4. Should Claude hooks live in shared settings or local settings? If local, confirm that hook commands should use absolute script paths rooted at the project.
+5. Which values must never be materialized into shared settings?
+6. Should bootstrap create settings files immediately or leave template placeholders?
 
 ## 12. Architecture And Docs
 

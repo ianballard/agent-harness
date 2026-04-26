@@ -52,6 +52,7 @@ Follow this sequence. Do not skip ahead to file generation.
    - `assets/templates/agents/`
    - `assets/templates/skills/`
    - `assets/templates/scripts/`
+   - `assets/templates/githooks/`
    - `assets/templates/docs/harness/`
    - `assets/templates/settings/`
 4. Read [project-inputs.md](references/project-inputs.md).
@@ -77,6 +78,9 @@ When generating the target harness:
 - Omit files intentionally when the interview says they are unnecessary.
 - Keep long operational detail in `docs/harness/*.md` and link to those docs from the thinner project policy/workflow skills.
 - Make unresolved areas obvious with explicit placeholders rather than vague prose.
+- Generate both Claude hooks and versioned git hooks when the interview says hook enforcement is required.
+- Put git hooks under `.githooks/`, not directly under `.git/hooks/`.
+- Wire Claude hooks through `.claude/settings.local.json` using absolute script paths rooted at the target repository.
 
 # Agent Harness Gist
 
@@ -493,6 +497,8 @@ The interview must gather enough detail to instantiate:
 - observability workflow
 - git policy
 - settings templates when the destination project needs shared or local Codex/Claude settings files
+- Claude hook wiring
+- versioned git hooks
 - hook/helper scripts
 - companion docs
 - any recurring project-specific skills
@@ -548,7 +554,14 @@ Use the bundled templates in `assets/templates/` as the source material for:
 - project `.claude/skills/*`
 - project `.claude/settings*.json` when the destination project needs them
 - project `scripts/*`
+- project `.githooks/*`
 - project harness docs
+
+Hook generation is not complete until:
+- versioned git hooks are materialized in the repository
+- Claude hooks are wired in `.claude/settings.local.json`
+- an installation path for git hooks is documented or scripted
+- hook behavior is documented in a harness doc
 
 ### 4b. Materialize the bundled factory into the target project
 
@@ -575,6 +588,7 @@ Typical outputs:
 - `docs/harness/deployment.md`
 - `docs/harness/observability.md`
 - `docs/harness/architecture.md`
+- `docs/harness/hooks.md`
 
 The generic skills should link to those docs rather than absorbing them.
 
@@ -587,8 +601,14 @@ Typical generated outputs:
 - `scripts/guard_cloud_identity.sh`
 - `scripts/log_remote_adapter.sh`
 - `scripts/guard_task_interface.sh`
+- `scripts/claude_hook_pre_tool_use.sh`
+- `scripts/claude_hook_post_tool_use.sh`
+- `scripts/install_githooks.sh`
 - `.claude/settings.json` when required
 - `.claude/settings.local.json` when required
+- `.githooks/pre-commit` when required
+- `.githooks/commit-msg` when required
+- `.githooks/pre-push` when required
 
 These scripts should be built from interview answers such as:
 - forbidden environments
@@ -597,6 +617,8 @@ These scripts should be built from interview answers such as:
 - required workspace, namespace, or cluster
 - remote log backend adapter details
 - task interface checks
+- protected branch and push rules
+- hook audit log location
 
 Never hardcode example-project values like a specific Terraform variable, profile name, or cloud account unless the human supplied them in the interview.
 
@@ -618,6 +640,7 @@ Examples:
 Before finishing, check:
 - core stage skills remain generic
 - project-specific details exist somewhere discoverable
+- hooks are materialized both as Claude hook wiring and repo-versioned git hooks when enforcement is required
 - placeholders remain where the project has not supplied facts
 - no example-project details leaked into the generic layer
 - any observability helper scripts are wired without hardcoding a backend into the generic layer

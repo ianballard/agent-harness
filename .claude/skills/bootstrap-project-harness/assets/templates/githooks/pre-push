@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Versioned pre-push hook template.
+# Bootstrap should replace placeholders with project branch rules.
+
+current_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+case "$current_branch" in
+  main|master|staging|develop)
+    if [[ "${ALLOW_PROTECTED_BRANCH_PUSH:-0}" != "1" ]]; then
+      echo "Blocked: direct pushes to protected branches are forbidden" >&2
+      exit 1
+    fi
+    ;;
+esac

@@ -60,10 +60,18 @@ Collect these before instantiating a project harness. Use placeholders for unkno
 
 - Hooked actions to block or validate: `<hooked-actions>`
 - Editable guidance paths and approval rules: `<guidance-edit-rules>`
+- Claude hook events/matchers: `<claude-hook-events-and-matchers>`
+- Claude hook absolute project root: `<absolute-project-root>`
 - Deploy-context guard script: `<guard-deploy-context-script>`
 - Cloud identity/profile guard script: `<guard-cloud-identity-script>`
 - Task-interface guard script: `<guard-task-interface-script>`
 - Log remote adapter script: `<log-remote-adapter-script>`
+- Claude pre-tool hook script: `<claude-pre-tool-hook-script>`
+- Claude post-tool hook script: `<claude-post-tool-hook-script>`
+- Git hook install script: `<git-hook-install-script>`
+- Versioned git hook path: `<versioned-git-hook-path>`
+- Git hooks to generate: `<pre-commit | commit-msg | pre-push>`
+- Hook audit log location: `<hook-audit-log-location>`
 - Hook integration points: `<hook-integration-points>`
 
 ## Settings Files
@@ -72,6 +80,7 @@ Collect these before instantiating a project harness. Use placeholders for unkno
 - Local settings file needed: `<yes|no>`
 - Shared settings values: `<shared-settings-values>`
 - Local settings values: `<local-settings-values>`
+- Claude hook command paths in local settings: `<absolute-hook-command-paths>`
 - Values that must never appear in shared settings: `<forbidden-shared-settings-values>`
 
 ## Git

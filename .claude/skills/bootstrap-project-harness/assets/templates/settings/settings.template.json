@@ -10,6 +10,7 @@
   "required_cloud_identity": "<required-cloud-identity>",
   "notes": [
     "Replace placeholders from bootstrap interview answers.",
-    "Remove keys the destination project does not need."
+    "Remove keys the destination project does not need.",
+    "Claude hook wiring should usually live in .claude/settings.local.json using absolute script paths rooted at the destination repository."
   ]
 }
