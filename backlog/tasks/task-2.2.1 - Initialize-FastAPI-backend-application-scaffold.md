@@ -1,11 +1,11 @@
 ---
 id: TASK-2.2.1
 title: Initialize FastAPI backend application scaffold
-status: In Progress
+status: Done
 assignee:
   - '@task-intake'
 created_date: '2026-04-26 16:58'
-updated_date: '2026-04-26 17:04'
+updated_date: '2026-04-26 17:07'
 labels:
   - backend
   - fastapi
@@ -86,10 +86,18 @@ Running 1 test using 1 worker
     e2e/backend-scaffold.spec.js:3:1 › backend scaffold responds on health endpoint ──────────────── passed (1 test).
 
 Verification correction: authoritative validation results for this task are backend pytest passed with 2 tests, uvicorn startup succeeded on http://127.0.0.1:8000, and Playwright smoke passed with 1 test using e2e/backend-scaffold.spec.js. The earlier long note entry includes shell-interpolated command output and should not be treated as the final verification record.
+
+Closeout verification: pytest passed in backend (2 tests) on 2026-04-26; Playwright smoke passed with npx playwright test e2e/backend-scaffold.spec.js (1 test) against a live uvicorn server on http://127.0.0.1:8000. Merge guard against develop...HEAD showed no files outside the task scope.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Initialized the FastAPI backend scaffold under backend/ with a runnable app entrypoint, shared app factory/configuration, router wiring, health endpoint, backend pytest coverage, backend smoke Playwright coverage, and README backend run/test instructions.
+<!-- SECTION:FINAL_SUMMARY:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 Backend automated validation relevant to the scaffolded surface passes.
-- [ ] #2 Implementation notes and verification evidence are recorded on the task.
+- [x] #1 Backend automated validation relevant to the scaffolded surface passes.
+- [x] #2 Implementation notes and verification evidence are recorded on the task.
 <!-- DOD:END -->
