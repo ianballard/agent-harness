@@ -1,9 +1,11 @@
 ---
 id: TASK-2.2
 title: Implement backend auth and profile API with SQLite persistence
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@task-intake'
 created_date: '2026-04-26 16:48'
+updated_date: '2026-04-26 16:58'
 labels:
   - backend
   - fastapi
@@ -34,6 +36,18 @@ Initialize the FastAPI backend under backend/, add SQLite-backed user persistenc
 - [ ] #5 An authenticated profile endpoint returns the current user's saved information from SQLite.
 - [ ] #6 Backend tests cover the signup, login, duplicate signup, and profile retrieval behavior for the implemented API.
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Risk classification: Extra High. Trigger: Large refactor touching login, profile, and shared persistence behavior in the same task per project-policy-risk. Intake result: blocked pending breakdown before implementation.
+
+2026-04-26 Child tasks were recreated after accidental deletion:
+- TASK-2.2.1 Initialize FastAPI backend application scaffold
+- TASK-2.2.2 Add SQLite user persistence layer
+- TASK-2.2.3 Implement signup and login API flow
+- TASK-2.2.4 Implement authenticated profile endpoint and backend auth coverage
+<!-- SECTION:NOTES:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->

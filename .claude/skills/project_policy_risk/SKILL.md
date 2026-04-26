@@ -13,8 +13,7 @@ Apply the first matching rule.
 
 ### Extra High
 
-- Database schema changes or irreversible data migrations
-- Changes that alter auth/session/identity contracts across both frontend and backend
+- Irreversible data migrations
 - Large refactors that touch login, profile, and shared persistence behavior in the same task
 
 Result:
