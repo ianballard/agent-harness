@@ -1,11 +1,11 @@
 ---
 id: TASK-2.2.4
 title: Implement authenticated profile endpoint and backend auth coverage
-status: In Progress
+status: Done
 assignee:
   - '@task-intake'
 created_date: '2026-04-26 16:58'
-updated_date: '2026-04-26 17:34'
+updated_date: '2026-04-26 21:10'
 labels:
   - backend
   - auth
