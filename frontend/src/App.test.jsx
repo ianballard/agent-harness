@@ -1,6 +1,6 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import App from "./App";
 import { AuthServiceError } from "./services/authService";
 
@@ -23,6 +23,10 @@ describe("App", () => {
     vi.clearAllMocks();
   });
 
+  afterEach(() => {
+    cleanup();
+  });
+
   it("switches views, signs in, and renders the profile surface", async () => {
     const user = userEvent.setup();
 
@@ -42,7 +46,7 @@ describe("App", () => {
     await user.click(screen.getByRole("button", { name: "Log in" }));
     await user.type(screen.getByLabelText("Email"), "person@example.com");
     await user.type(screen.getByLabelText("Password"), "password123");
-    await user.click(screen.getByRole("button", { name: "Log in" }));
+    await user.click(screen.getAllByRole("button", { name: "Log in" }).at(-1));
 
     await waitFor(() =>
       expect(screen.getByRole("heading", { name: "Example Person" })).toBeInTheDocument()
