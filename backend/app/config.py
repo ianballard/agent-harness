@@ -16,6 +16,7 @@ class Settings:
     docs_url: str = "/docs"
     openapi_url: str = "/openapi.json"
     cors_origins: tuple[str, ...] = ("http://localhost:5173",)
+    secret_key: str = "myproject-dev-secret"
     sqlite_db_path: Path = Path(__file__).resolve().parents[1] / "myproject.db"
 
 
@@ -30,6 +31,7 @@ def get_settings() -> Settings:
         cors_origins=tuple(
             _split_csv(os.getenv("CORS_ORIGINS", "http://localhost:5173"))
         ),
+        secret_key=os.getenv("SECRET_KEY", "myproject-dev-secret"),
         sqlite_db_path=Path(
             os.getenv(
                 "SQLITE_DB_PATH",
