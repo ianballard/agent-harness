@@ -1,7 +1,5 @@
 node_modules
 backend/.venv
-backend/__pycache__
 backend/.pytest_cache
-backend/app/__pycache__
-backend/tests/__pycache__
+backend/**/__pycache__
 test-results
