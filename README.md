@@ -13,6 +13,7 @@ uvicorn main:app --reload
 ```
 
 API runs at http://localhost:8000. Docs at http://localhost:8000/docs.
+Copy `.env.example` to `.env` and adjust values if you need non-default local settings.
 
 ### Frontend
 
@@ -26,7 +27,7 @@ App runs at http://localhost:5173. API requests proxied to the backend automatic
 
 ## Architecture
 
-- `backend/` — FastAPI app, SQLite via SQLAlchemy, JWT auth
+- `backend/` — FastAPI app scaffold with app factory, router wiring, and shared settings
 - `frontend/` — Vite + React SPA, axios with token interceptor
 
 ## Notes
@@ -55,3 +56,19 @@ pytest
 ```
 
 Test files live in `backend/tests/`. Pytest is configured via `pyproject.toml`.
+
+### E2E
+
+Start the backend in one terminal:
+
+```bash
+cd backend
+source .venv/bin/activate
+uvicorn main:app --reload
+```
+
+Then run the smoke test from the repo root:
+
+```bash
+npx playwright test e2e/backend-scaffold.spec.js
+```
