@@ -1,6 +1,6 @@
 # Project Inputs
 
-Collect these before instantiating a POC harness. Use placeholders for unknowns.
+Collect these before instantiating a lightweight harness. Use placeholders for unknowns.
 
 ## Identity
 
@@ -13,6 +13,8 @@ Collect these before instantiating a POC harness. Use placeholders for unknowns.
 
 - Task management approach: `<tool-or-workflow>`
 - No-task fallback: `<ad-hoc-request | create-lightweight-task | stop-and-ask>`
+- Required task updates during implementation: `<none | implementation-details | files-changed | status-updates | other>`
+- Required task state before PR creation: `<none | done | ready-for-review | other>`
 
 ## Dev / Test Loop
 

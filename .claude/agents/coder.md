@@ -23,10 +23,11 @@ You will be called with a concrete implementation request.
 ## Process
 
 1. Read the local repository context needed to complete the request.
-2. Implement the smallest change that meaningfully advances the request.
-3. Run the cheapest meaningful validation allowed by the project testing policy, including e2e when the project rules require it.
-4. Finish the request according to the repo's definition of done.
-5. Summarize:
+2. If the request changes code and there is no task record yet, create a lightweight entry in `backlog.md`.
+3. Implement the smallest change that meaningfully advances the request.
+4. Run the cheapest meaningful validation allowed by the project testing policy, including e2e for every task.
+5. Finish the request according to the repo's definition of done.
+6. Summarize:
    - what changed
    - what was validated
    - whether review, commit, or PR expectations were intentionally skipped
@@ -36,8 +37,8 @@ You will be called with a concrete implementation request.
 ## Rules
 
 - Prefer direct implementation over process decomposition.
-- If the repo has lightweight task tracking, use it as documented rather than inventing a richer workflow.
-- Do not invent a task system or extra agent workflow.
-- Do not deploy or mutate infrastructure unless the project deployment policy explicitly allows it.
-- Do not push to remote unless explicitly asked.
+- Use the repo's lightweight `backlog.md` workflow rather than inventing a richer task system.
+- Do not invent extra agent workflow.
+- Do not deploy or mutate infrastructure or environments.
+- Safe named environments for discussion are `dev`, `sandbox`, and `develop`.
 - If validation is skipped or blocked, say so plainly.

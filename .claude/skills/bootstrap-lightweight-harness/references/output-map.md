@@ -1,13 +1,13 @@
 # Output Map
 
-Use this map to decide where information should live when instantiating a POC harness.
+Use this map to decide where information should live when instantiating a lightweight harness.
 
 ## Keep generic
 
 These should stay project-agnostic:
 - `CLAUDE.md`
 - `.claude/agents/coder.md`
-- `.claude/skills/build_poc/SKILL.md`
+- `.claude/skills/build/SKILL.md`
 
 ## Fill with project-local policy
 
@@ -25,7 +25,7 @@ Then link to that doc from `CLAUDE.md` or the implementation skill.
 
 ## Do not generate by default
 
-These belong to the full harness, not the POC scaffold:
+These belong to the full harness, not the lightweight scaffold:
 - coordinator or intake skills
 - task-system policy
 - risk-classification policy
@@ -36,7 +36,7 @@ These belong to the full harness, not the POC scaffold:
 
 ## Upgrade path
 
-Every generated POC harness should state when to migrate to the full harness, such as:
+Every generated lightweight harness should state when to migrate to the full harness, such as:
 - parallel contributors become common
 - deploy or infra risk becomes meaningful
 - regressions start recurring

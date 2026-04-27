@@ -2,7 +2,7 @@
 
 ## Main Skill
 
-- `build_poc` - default implementation workflow for rapid development and early-stage changes
+- `build` - default implementation workflow for rapid development and early-stage changes
 
 ## Main Agent
 
@@ -17,7 +17,7 @@
 ## Working Style
 
 - Optimize for visible progress and short iteration loops.
-- Prefer the smallest change that proves or disproves the POC.
+- Prefer direct, scoped implementation that satisfies the request without unnecessary process.
 - Do not add process machinery unless the repo has clearly outgrown the lightweight harness.
 
 ## Completion Rules

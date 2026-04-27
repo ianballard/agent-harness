@@ -17,6 +17,8 @@ If the human does not know an answer, record:
 
 1. How are tasks managed? - default: backlog.md
 2. What should happen if there is no task record yet? - default: create a task for any code change
+3. If tasks are tracked, what must be updated on the task during implementation? - example: implementation details, files changed
+4. What task status must be set before a PR is created? - example: Done
 
 ## 3. Dev / Test Loop
 

@@ -1,22 +1,22 @@
 ---
-name: bootstrap-poc-harness
-description: Scaffold a lightweight project harness for rapid POCs and early-stage repositories using one main implementation path, minimal policy surface, and explicit safety rails.
+name: bootstrap-lightweight-harness
+description: Scaffold a lightweight project harness for rapid development and early-stage repositories using one main implementation path, minimal policy surface, and explicit safety rails.
 ---
 
-# Bootstrap POC Harness
+# Bootstrap Lightweight Harness
 
 Use this skill when a repository needs a thin harness for rapid development rather than the full coordinator-driven factory pattern.
 
 ## Goal
 
-Instantiate a project-specific POC harness with these defaults:
+Instantiate a project-specific lightweight harness with these defaults:
 - one main implementation path
 - minimal ceremony
 - lightweight task handling when tasks exist
 - explicit git, testing, and deployment safety rules
 - a documented upgrade path to the full harness
 
-Do not turn the POC scaffold into a disguised copy of the full factory harness.
+Do not turn the lightweight scaffold into a disguised copy of the full factory harness.
 
 ## Required Workflow
 

@@ -14,4 +14,4 @@ Default lightweight policy:
 - Run e2e only when the repo's rules or change type require it.
 - If no tests exist, use a smoke check or direct run path when possible.
 - If validation is skipped, blocked, or partial, report that explicitly.
-- Do not add heavy test ceremony to a POC unless the failure risk justifies it.
+- Do not add heavy test ceremony unless the failure risk justifies it.

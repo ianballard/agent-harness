@@ -1,11 +1,11 @@
-# POC Dev Loop
+# Dev Loop
 
 This harness is optimized for rapid development and learning.
 
 ## Principles
 
 - Prefer short iteration loops over process ceremony.
-- Make the smallest change that proves progress.
+- Implement the request with disciplined scope.
 - Keep validation proportional to the risk and maturity of the repository.
 - Surface shortcuts and debt explicitly.
 
@@ -14,7 +14,8 @@ This harness is optimized for rapid development and learning.
 1. Read the local context needed for the request.
 2. Implement the smallest useful change.
 3. Run the cheapest meaningful validation.
-4. Report what changed, what was validated, and what remains risky.
+4. Keep task records current when the repository expects task-managed execution.
+5. Report what changed, what was validated, and what remains risky.
 
 ## When To Upgrade
 

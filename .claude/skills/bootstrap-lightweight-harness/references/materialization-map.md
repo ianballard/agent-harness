@@ -1,6 +1,6 @@
 # Materialization Map
 
-Use this map to render the bundled POC scaffold into a target project.
+Use this map to render the bundled lightweight scaffold into a target project.
 
 ## Core files
 
@@ -12,7 +12,7 @@ Use this map to render the bundled POC scaffold into a target project.
 
 ## Skills
 
-- `assets/templates/skills/build_poc/SKILL.md` -> `.claude/skills/build_poc/SKILL.md`
+- `assets/templates/skills/build/SKILL.md` -> `.claude/skills/build/SKILL.md`
 - `assets/templates/skills/project_policy_git/SKILL.md` -> `.claude/skills/project_policy_git/SKILL.md`
 - `assets/templates/skills/project_policy_testing/SKILL.md` -> `.claude/skills/project_policy_testing/SKILL.md`
 - `assets/templates/skills/project_policy_deployment/SKILL.md` -> `.claude/skills/project_policy_deployment/SKILL.md`
